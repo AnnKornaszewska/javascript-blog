@@ -1,6 +1,6 @@
 'use strict';
 
-
+// definicja funkcji (bez wykonania)
 function titleClickHandler(event){
   event.preventDefault();
   const clickedElement = this;
@@ -13,7 +13,7 @@ function titleClickHandler(event){
     activeLink.classList.remove('active');
   }
 
-  /* [DONE] add class 'active' to the clicked link */
+  /* [DONE] add class 'active' to the clicked link */            /*3*/
   console.log('clickedElement:', clickedElement);
   clickedElement.classList.add('active');
 
@@ -27,23 +27,23 @@ function titleClickHandler(event){
 
   /*[DONE] get 'href' attribute from the clicked link */
   const articleSelector = clickedElement.getAttribute('href');
-  console.log('Link was clicked ', articleSelector);
+  console.log('Link was clicked ', articleSelector);               /*4*/
 
   /* [DONE] find the correct article using the selector (value of 'href' attribute) */
 
   const targetArticle = document.querySelector('article' + articleSelector);
-  console.log('target article:', targetArticle);
+  console.log('target article:', targetArticle);                /*5*/
 
   /*[DONE] add class 'active' to the correct article */
   targetArticle.classList.add('active');
 }
 
-
-
+// utworzenie zmiennych
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
 
+// definacji funkcji
 function generateTitleLinks(){
   console.log();
 
@@ -71,14 +71,14 @@ function generateTitleLinks(){
     /* [DONE] create HTML of the link */ 
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
   
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-    console.log('<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>');
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';   
+    console.log('<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>');    /*1*/
 
     /* [DONE] insert link into titleList */
     optTitleListSelector.insertAdjacentHTML('afterbegin', linkHTML);
 
     html = html + linkHTML;
-    console.log(html);
+    console.log(html);     /*2*/
   }
 
   titleList.innerHTML = html;
@@ -87,10 +87,14 @@ function generateTitleLinks(){
 
 generateTitleLinks();
 
+// wyszukaj linki pasujace do selectora i wypisz w konsoli
 const links = document.querySelectorAll('.titles a');
-console.log(links);
+console.log(links);                /*Nodelist*/
 
 for(let link of links){
   link.addEventListener('click', titleClickHandler);
 }
+
+
+
 
