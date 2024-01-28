@@ -43,7 +43,8 @@ function titleClickHandler(event){
 
 
 // utworzenie zmiennych
-const optArticleSelector = '.post',
+const 
+  optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
   optArticleTagsSelector = '.post-tags .list';
@@ -134,20 +135,27 @@ function generateTags(){
       console.log(tag);
       
       /* generate HTML of the link */
+      const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>\n';
+      console.log('<li><a href="#tag-' + tag + '">' + tag + '</a></li>');
+
+      const optArticleTags = article.querySelector('.post-tags .list')
+
+      optArticleTags.insertAdjacentHTML('afterbegin', linkHTML)
 
       /* add generated code to html variable */
-    }
-
-
+      html = html + linkHTML;
+      console.log(html)
       
-
+    }
     /* END LOOP: for each tag */
 
     /* insert HTML of all the links into the tags wrapper */
+    const tagsList = document.querySelector('');
 
   /* END LOOP: for every article: */
   
   }
+  
 
     
 }
