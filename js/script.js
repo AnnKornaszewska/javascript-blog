@@ -51,10 +51,10 @@ const
 
 // definacji funkcji
 function generateTitleLinks(customSelector = ''){
-  // console.log();
+  console.log(optTitleListSelector + customSelector);
 
   /* [DONE] remove contents of titleList */
-  const titleList = document.querySelector(optTitleListSelector + customSelector);
+  const titleList = document.querySelector(optTitleListSelector);
   console.log(titleList);
   titleList.innerHTML = '';
 
@@ -62,7 +62,8 @@ function generateTitleLinks(customSelector = ''){
   
   let html = '';
 
-  const articles = document.querySelectorAll(optArticleSelector);
+  // const articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(optArticleSelector + customSelector);
   
   for(let article of articles){
     
@@ -198,7 +199,7 @@ function tagClickHandler(event){
   /* execute function "generateTitleLinks" with article selector as argument */
   // let linksSelector = '[data-tags~="' + tag + '"]'
   // let linksSelector = ('[data-tags~="' + tag + '"]');
-  console.log(linksSelector)
+  // console.log(linksSelector)
   // generateTitleLinks(linksSelector);
   generateTitleLinks('[data-tags~="' + tag + '"]');
    
