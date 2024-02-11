@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+
+
+<!-- <script id="single-link" type="text/x-handlebars-template">
+  <li><a href="#"{{ articleId }}><span>{{ articleTitle }}</span></a></li>
+</script> -->
+<!-- <script id="article-link" type="text/x-handlebars-template">
+  <li><a href="#{{ articleId }}"><span>{{ articleTitle }}</span></a></li>
+</script> -->
+
+<script id="template-article-link" type="text/x-handlebars-template">
+  <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+</script>
+
+<script id="template-tag-link" type="text/x-handlebars-template">
+  <li><a href="#tag-{{ tag }}">{{ tag }}</a></li>
+</script>
+
+<script id="template-author-link" type="text/x-handlebars-template">
+  <a href="#author-{{ articleAuthor }}">{{ articleAuthor }}</a>
+</script>
+
+<script id="template-tag-cloud-link" type="text/x-handlebars-template">
+  {{#each tags}}
+  <li class="tag-size-{{ className }}"><a href="#tag-{{ tag }}">{{ tag }}({{ count }})</a></li>
+  {{/each}}
+</script>
+
+<script id="template-author-cloud-link" type="text/x-handlebars-template">
+  {{#each authors}}
+  <li class="tag-size-{{ className }}"><a href="#tag-{{ author }}">{{ author }}({{ count }})</a></li>
+  {{/each}}
+</script>
+
+<!-- <script id="template-hello" type="text/x-handlebars-template">
+  <p>Hello {{ firstName }} {{ lastName }}!</p>
+</script> -->
+
+<!-- <script src="js/script.js"></script> -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sass\style.css">
     <title>Document</title>
-
 </head>
+
+
 <body>
     <div class="blog">
         <div class="container">
