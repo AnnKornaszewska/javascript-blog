@@ -8,6 +8,7 @@ const templates = {
   authorCloudLink : Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
 };
 
+
 // definicja funkcji (bez wykonania)
 function titleClickHandler(event){
   event.preventDefault();
@@ -55,8 +56,8 @@ const
   optArticleAuthorSelector = '.post-author',
   optTagsListSelector = '.tags.list',
   optCloudClassCount = 5,
-  optAuthorsListSelector = '.authors.list',
-  optCloudClassPrefix = 'tag-size-';
+  optAuthorsListSelector = '.authors.list';
+  // optCloudClassPrefix = 'tag-size-';
 
 // definacji funkcji
 function generateTitleLinks(customSelector = ''){
@@ -70,7 +71,6 @@ function generateTitleLinks(customSelector = ''){
   /* find all the articles and save them to variable: articles */
   
   let html = '';
-  let html2 = '';
 
   // const articles = document.querySelectorAll(optArticleSelector);
   const articles = document.querySelectorAll(optArticleSelector + customSelector);
@@ -81,7 +81,7 @@ function generateTitleLinks(customSelector = ''){
     
     /* [DONE] get the article id */
     const articleId = article.getAttribute('id');
-    console.log('articleId:' + articleId)
+    console.log('articleId:' + articleId);
   
     // /* [DONE] find the title element */
     // const optArticleSelector = document.querySelector('.post');
@@ -91,7 +91,7 @@ function generateTitleLinks(customSelector = ''){
     
     // /* [DONE] create HTML of the link */ 
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-    console.log('articleTitle:' + articleTitle)
+    console.log('articleTitle:' + articleTitle);
   
     // const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';   
   
@@ -244,7 +244,7 @@ function generateTags(){
 
   for(let tag in allTags){
     // const tagLinkHTML = '<li class="'+ calculateTagClass(allTags[tag], tagsParams) + '">'+ tag +'</li>';
-    const thisTagParams = calculateTagClass(allTags[tag], tagsParams);
+    // const thisTagParams = calculateTagClass(allTags[tag], tagsParams);
     // console.log('thisTagParams', thisTagParams);
     // const tagLinkHTML = '<li class="'+optCloudClassPrefix+thisTagParams + '"><a href="#tag-' + tag + '">' + tag + '</a></li>\n';
 
@@ -260,8 +260,7 @@ function generateTags(){
   // END loop for each tag in all Tags
   // tagList.innerHTML = allTagsHTML;
   tagList.innerHTML = templates.tagCloudLink(allTagsData);
-  console.log(allTagsData)
-
+  console.log(allTagsData);
 }
 
 generateTags();
